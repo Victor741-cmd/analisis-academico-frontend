@@ -10,8 +10,12 @@ function Bar({ rows, xKey, yKey, title }) {
       type: "bar",
       data: {
         labels: rows.map(r => r[xKey]),
-        datasets: [{ data: rows.map(r => r[yKey]) }]
-      },
+datasets: [{
+  data: rows.map(r => r[yKey]),
+  backgroundColor: "rgba(147,197,253,0.85)", // azul claro
+  borderColor: "rgba(147,197,253,1)",
+  borderWidth: 1
+}]      },
       options: { responsive: true, plugins: { legend: { display: false }, title: { display: true, text: title } } }
     });
     return () => chart.destroy();
